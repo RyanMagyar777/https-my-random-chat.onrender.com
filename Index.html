@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anonymous Random Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="menu" class="screen">
+    <div class="card">
+      <h1>Anonymous Random Chat</h1>
+      <P>Choose how you want to chat.</P>
+
+      <div class="menu-actions">
+        <button id="videoModeBtn">Video + Text</button>
+        <button id="textModeBtn" class="secondary">Just Text</button>
+      </div>
+
+      <P class="small">All chats are anonymous. Certain words are filtered.</P>
+    </div>
+  </div>
+
+  <div id="chatApp" class="screen hidden">
+    <div class="topbar">
+      <div>
+        <h1>Anonymous Chat</h1>
+        <div id="status">Ready.</div>
+        <div class="mini-stats">
+          <span>Online: <strong id="onlineCount">0</strong></span>
+          <span>Searching: <strong id="searchingCount">0</strong></span>
+          <span>Chatting: <strong id="chattingCount">0</strong></span>
+        </div>
+      </div>
+      <div class="mode-badge" id="modeBadge">Mode</div>
+    </div>
+
+    <div id="videoArea" class="videos hidden">
+      <div class="video-box">
+        <span>You</span>
+        <video id="localVideo" autoplay playsinline muted></video>
+      </div>
+
+      <div class="video-box">
+        <span>Stranger</span>
+        <video id="remoteVideo" autoplay playsinline></video>
+      </div>
+    </div>
+
+    <div class="chat-panel">
+      <div id="chatLog" class="chat-log"></div>
+
+      <form id="chatForm" class="chat-form">
+        <input
+          id="messageInput"
+          type="text"
+          maxlength="400"
+          autocomplete="off"
+          placeholder="Type a message..."
+        />
+        <button type="submit">Send</button>
+      </form>
+
+      <div class="controls">
+        <button id="nextBtn" class="secondary">Next</button>
+        <button id="leaveBtn" class="danger">Leave</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
